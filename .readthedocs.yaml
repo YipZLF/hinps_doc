@@ -1,5 +1,16 @@
+version: 2
+
+build:
+  tool:
+    python: "3.8"
+
 sphinx:
+  configuration: source/conf.py
   fail_on_warning: true
+
+python:
+  install:
+  - requirements: requirements.txt
 
 formats:
   - pdf

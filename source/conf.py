@@ -14,9 +14,9 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser','rst2pdf.pdfbuilder']
+extensions = ['myst_parser']
 
-templates_path = ['_templates']
+# templates_path = ['_templates']
 exclude_patterns = []
 
 
