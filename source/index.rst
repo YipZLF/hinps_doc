@@ -8,13 +8,6 @@ HiNPS文档
 
 HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络方法求解偏微分方程的软件。
 
-
-.. note::
-   This project is under active developtment.
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
    几何区域
       解析定义区域
       STL文件定义区域
@@ -34,11 +27,21 @@ HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络�
       计时
 
 
+.. note::
+   This project is under active developtment.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   快速入门<get_started.rst>
+   方程与约束<constraint.rst>
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+.. Indices and tables
+.. ==================
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
