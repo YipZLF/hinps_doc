@@ -14,11 +14,19 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser']
+extensions = ['myst_parser','rst2pdf.pdfbuilder']
 
 templates_path = ['_templates']
 exclude_patterns = []
 
+
+# -- Language support
+language = 'zh_CN'
+tex_engine = 'xelatex'
+latex_use_xindy = False
+latex_elements = {
+    'preamble': '\\usepackage[UTF8]{ctex}\n',
+}
 
 
 # -- Options for HTML output -------------------------------------------------
