@@ -32,10 +32,17 @@ HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络�
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-   快速入门<get_started.rst>
+   快速入门<get_started.md>
    方程与约束<constraint.rst>
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API文档
+
+   hinps<api.md>
+   hinps.train<api.md>
 
 
 
