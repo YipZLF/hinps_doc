@@ -22,33 +22,35 @@ HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络�
    分布式模块
       映射
       通信源语
-   其他
-      符号表达式与计算
-      计时
 
+```{admonition} 友情提示
+   本项目依然在活跃开发中。This project is under active developtment.
+```
 
-.. note::
-   This project is under active developtment.
-
+```{eval-rst}
 .. toctree::
    :maxdepth: 2
 
    快速入门<get_started.md>
-   方程与约束<constraint.rst>
+   方程与约束<constraint.md>
+   几何区域<geometry.md>
+   数据与采样<data.md>
+   并行与分布式<distributed.md>
+```
 
-
+```{eval-rst}
 .. toctree::
    :maxdepth: 1
    :caption: API文档
 
    hinps<api.md>
    hinps.train<api.md>
+```
 
 
-
-
+<!-- 
 .. Indices and tables
 .. ==================
 .. * :ref:`genindex`
 .. * :ref:`modindex`
-.. * :ref:`search`
+.. * :ref:`search` -->
