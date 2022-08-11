@@ -26,9 +26,9 @@ HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络�
    :maxdepth: 2
 
    快速入门<get_started.md>
-   方程与约束<constraint.md>
    几何区域<geometry.md>
    数据与采样<data.md>
+   方程与约束<constraint.md>
    并行与分布式<distributed.md>
 ```
 
