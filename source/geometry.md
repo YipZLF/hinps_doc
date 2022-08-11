@@ -82,3 +82,9 @@
 ```{admonition} 注意
 我们维护的是**外法向**。
 ```
+
+
+```{admonition} Coming up...
+    STL文件定义区域
+    区域分解
+```
