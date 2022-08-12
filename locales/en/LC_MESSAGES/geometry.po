@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, YipZLF
+# This file is distributed under the same license as the HiNPS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: HiNPS \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-12 09:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../source/geometry.md:1
+msgid "几何区域"
+msgstr ""
+
+#: ../../source/geometry.md:3
+msgid "偏微分方程都是定义在一定空间区域上，本模块的功能是表示和管理空间区域。边界条件，也就是边界上的约束，也是偏微分方程的一个重要部分，所以我们还需要维护空间区域的边界。"
+msgstr ""
+
+#: ../../source/geometry.md:5
+msgid "整体来看，本模块的实现逻辑是："
+msgstr ""
+
+#: ../../source/geometry.md:7
+msgid "描述几何图形的核心是SDF, Signed Distance Function。"
+msgstr ""
+
+#: ../../source/geometry.md:9
+msgid "SDF的定义"
+msgstr ""
+
+#: ../../source/geometry.md:10
+msgid ""
+"对于一个封闭几何区域 {math}`\\Omega \\in \\mathcal{R}^d`, 我们构造一个函数{math}`F: "
+"\\mathcal{R}^d \\rightarrow \\mathcal{R}`。满足："
+msgstr ""
+
+#: ../../source/geometry.md:12
+msgid ""
+"如果{math}`F(\\mathbf{x})>0`，则{math}`\\mathbf{x}\\in \\Omega / "
+"\\partial\\Omega`，{math}`\\mathbf{x}`在{math}`\\Omega`内"
+msgstr ""
+
+#: ../../source/geometry.md:13
+msgid ""
+"如果{math}`F(\\mathbf{x})<0`，则{math}`\\mathbf{x} \\in "
+"\\overline{\\Omega}`，{math}`\\mathbf{x}`在{math}`\\Omega`外"
+msgstr ""
+
+#: ../../source/geometry.md:14
+msgid ""
+"如果{math}`F(\\mathbf{x})=0`，则{math}`\\mathbf{x} \\in \\partial "
+"\\Omega`，{math}`\\mathbf{x}`在{math}`\\Omega`边界上。"
+msgstr ""
+
+#: ../../source/geometry.md:16
+msgid "我们称F是 {math}`\\Omega`的一个SDF。"
+msgstr ""
+
+#: ../../source/geometry.md:19
+msgid "`Geometry`需要维护采样空间(sample space)，提供给[`Sampler`](data.md#sampler采样器)用于采样。"
+msgstr ""
+
+#: ../../source/geometry.md:21
+msgid "每个几何图形都维护了边界`Boundary`的信息。边界本质上是低一个维度的几何图形，需要维护其法向信息，其他大体逻辑与`Geometry`相似。"
+msgstr ""
+
+#: ../../source/geometry.md:24
+msgid "`Geometry` 几何区域"
+msgstr ""
+
+#: ../../source/geometry.md:26
+msgid "我们以d维的`Box`为例子，介绍我们如何表示一个有解析表达式的几何区域。"
+msgstr ""
+
+#: ../../source/geometry.md:28 ../../source/geometry.md:68
+msgid "定义形状"
+msgstr ""
+
+#: ../../source/geometry.md:30
+msgid "形状用SDF来表示。`sdf`方法接受的输入是采样点的数据Tensor，大小必须为[...,d]，即最后一维长度为d。返回的数据大小为[...,1]。"
+msgstr ""
+
+#: ../../source/geometry.md:32
+msgid "我们需要把这个几何区域的解析表达式写成一个函数句柄，保存为`self._sdf`，从而给`sdf`方法来调用。对于`Box`来说，需要的参数就是每个维度可取值的上界`sup`和下界`inf`。"
+msgstr ""
+
+#: ../../source/geometry.md:34 ../../source/geometry.md:82
+msgid "注意"
+msgstr ""
+
+#: ../../source/geometry.md:35
+msgid "考虑到浮点数精度，我们在代码中不使用SDF(x)==0这一判断，而是使用abs(SDF(x))< EPS。"
+msgstr ""
+
+#: ../../source/geometry.md:38
+msgid "定义边界`Boundary`"
+msgstr ""
+
+#: ../../source/geometry.md:40
+msgid "我们需要创建边界对象：给出边界需要的参数，具体见[`Boundary`](#boundary边界)。然后保存到`self._bd`中。"
+msgstr ""
+
+#: ../../source/geometry.md:42
+msgid "这一部分的目的是采样的时候我们可以遍历每个边界，并在其上进行采样。"
+msgstr ""
+
+#: ../../source/geometry.md:44
+msgid "为了采样合理，我们用MC方法估算了每个边界的“面积”，用于分配在不同边界上面的采样数目。"
+msgstr ""
+
+#: ../../source/geometry.md:46 ../../source/geometry.md:75
+msgid "原空间与采样空间的映射"
+msgstr ""
+
+#: ../../source/geometry.md:48
+msgid ""
+"当原空间（origin_space，定义PDE的空间）和采样空间不一致时，`Geometry`还需要维护这两空间之间的映射。例如：对于平面直角坐标系中的圆，其空间$\\Omega"
+" = \\{x| \\|x\\|_2 \\le r "
+"\\}$；我们可以将其转换为极坐标，定义其采样空间为$[0,r]\\times[0,2\\pi]$"
+msgstr ""
+
+#: ../../source/geometry.md:50
+msgid "`Box`的可以不需要这样的映射，所以"
+msgstr ""
+
+#: ../../source/geometry.md:51
+msgid "`to_sample_space`是直接返回上界和下界"
+msgstr ""
+
+#: ../../source/geometry.md:52
+msgid "`to_origin_space`是一个恒等映射"
+msgstr ""
+
+#: ../../source/geometry.md:54
+msgid "`filter_sample`这一方法的目的是，我们允许原空间到采样空间的映射不是一一对应的，为了简化代码的实现"
+msgstr ""
+
+#: ../../source/geometry.md:55
+msgid ""
+"例如：我们可以把一个半径为r的圆映射到$[-r,r] \\times "
+"[-r,r]$，如果我们在采样空间进行均匀采样后，得到的点只有$\\frac{\\pi}{4}$会落在原来的圆内。"
+msgstr ""
+
+#: ../../source/geometry.md:57
+msgid ""
+"我们在`filter_sample`中调用`sdf`可以将不在圆内的点筛掉。如果输入是一个尺寸为[...,N,d]的数据Tensor，返回则是一个尺寸为[...,M,d]的Tensor，其中M"
+" $\\le$ N。"
+msgstr ""
+
+#: ../../source/geometry.md:60
+msgid "提示"
+msgstr ""
+
+#: ../../source/geometry.md:61
+msgid "在采样空间的分布与原空间的分布不一定是一样的，以上述圆为例子，在采样空间的均匀采样并不是在原空间的均匀采样。"
+msgstr ""
+
+#: ../../source/geometry.md:63
+msgid "相关加权的采样逻辑需要在`Sampler`中实现。"
+msgstr ""
+
+#: ../../source/geometry.md:65
+msgid "`Boundary`边界"
+msgstr ""
+
+#: ../../source/geometry.md:67
+msgid "我们定义边界形状与`Geometry`略有不同，另外需要定义边界法向。"
+msgstr ""
+
+#: ../../source/geometry.md:70
+msgid "我们要求边界都是可参数化的，需要给出参数范围和参数的映射函数（只需用`SymPy`给出数学表达式，使用`hinps.expression.Function`转换为可调用的Python函数）。"
+msgstr ""
+
+#: ../../source/geometry.md:72
+msgid ""
+"如果是一个不与坐标轴平行的正方形ABCD，我们可以用$(a,b) \\in "
+"[0,1]\\times[0,1]$作为参数，通过映射$g(a,b)=a * \\overrightarrow{AB} + b * "
+"\\overrightarrow{AD}$得到这个正方形内的点。"
+msgstr ""
+
+#: ../../source/geometry.md:77
+msgid "采样空间就是该边界的参数空间。"
+msgstr ""
+
+#: ../../source/geometry.md:79
+msgid "定义法向"
+msgstr ""
+
+#: ../../source/geometry.md:80
+msgid "我们需要在定义边界的时候给出法向的函数，他是一个可调用的Python函数。输入为[...,d]，输出也为[...,d]，而且输出的每一个法向应该是单位向量。"
+msgstr ""
+
+#: ../../source/geometry.md:83
+msgid "我们维护的是**外法向**。"
+msgstr ""
+
+#: ../../source/geometry.md:87
+msgid "Coming up..."
+msgstr ""
+

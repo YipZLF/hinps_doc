@@ -34,8 +34,6 @@ HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络�
    :caption: API文档
 
    hinps<api.md>
-   hinps.train<api.md>
-   hinps.utils<api.md>
 ```
 
 
