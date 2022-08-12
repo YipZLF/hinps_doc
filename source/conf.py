@@ -42,6 +42,7 @@ latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
 
+locale_dirs = ['../locales/']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
