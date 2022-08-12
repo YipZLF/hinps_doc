@@ -19,23 +19,23 @@ msgstr ""
 
 #: ../../source/get_started.md:1
 msgid "快速入门"
-msgstr ""
+msgstr "Quick Start"
 
 #: ../../source/get_started.md:3
 msgid "下面的例子将帮助你快速进行HiNPS的安装和运行，我们还将通过一个例子向你展示HiNPS求解偏微分方程的过程。"
-msgstr ""
+msgstr "The following example will help you through the installation of HiNPS. We will illustrate the process of solving PDE using HiNPS."
 
 #: ../../source/get_started.md:4
 msgid "安装"
-msgstr ""
+msgstr "Installation"
 
 #: ../../source/get_started.md:6
 msgid "首先从GitHub获取我们的源代码"
-msgstr ""
+msgstr "First we obtain the source codes from GitHub."
 
 #: ../../source/get_started.md:12
 msgid "我们推荐使用`conda`进行环境配置。创建一个名为`hinps`的python3.8环境。"
-msgstr ""
+msgstr "We recommend using `conda` to set up the environment. First we create a conda environment named `hinps` with python3.8."
 
 #: ../../source/get_started.md:18
 msgid "请根据你的安装环境首先安装[PyTorch](https://pytorch.org/)(版本要求>=1.10)。需要使用GPU则请将cudatoolkit=11.3改为你的CUDA版本号。"
