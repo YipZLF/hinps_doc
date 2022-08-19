@@ -4,41 +4,48 @@
 ## 安装
 
 首先从GitHub获取我们的源代码
-```
+```bash
 git clone https://github.com/chaoyanggroup/hinps
 cd hinps
 ```
 
 我们推荐使用`conda`进行环境配置。创建一个名为`hinps`的python3.8环境。
-```
+```bash
 conda activate
 conda create -n hinps python==3.8
 ```
+
 请根据你的安装环境首先安装[PyTorch](https://pytorch.org/)(版本要求>=1.10)。需要使用GPU则请将cudatoolkit=11.3改为你的CUDA版本号。
-```
+```bash
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 ```
 如果只需要在CPU上运行，请使用
-```
+```bash
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
-### 安装MPI
-你需要首先在你的机器上安装MPI，集群上可以通过`module avail`检查是否存在已安装好的MPI，如果有的话请加载，我们推荐使用OpenMPI, 随后安装mpi4py
-```
+
+接下来准备MPI。你需要首先在你的机器上安装MPI，集群上可以通过`module avail`检查是否存在已安装好的MPI，如果有的话请加载。
+
+如果没有我们推荐使用OpenMPI。
+```bash
 conda install openmpi mpi4py
 ```
 
+随后安装mpi4py
+```bash
+conda install mpi4py
+```
 ### 安装HiNPS
 
 在HiNPS文件夹下，可以通过setup.py进行安装。
 
-```
+```bash
 python setup.py install
 ```
 
 如果上述过程出错了，可以手动安装以下依赖包
 
-```
+```bash
 pip install sympy matplotlib pandas scipy
 ```
 
@@ -191,7 +198,7 @@ optimizer = torch.optim.LBFGS(
 
 创建求解器，调用`.solve()`即可开始PINN的流程。
 
-```
+```python
 solver = hp.train.TDPINNSolver(
     train_dataset=train_dataset,
     val_dataset=val_dataset,

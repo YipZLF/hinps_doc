@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, YipZLF
+# This file is distributed under the same license as the HiNPS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: HiNPS \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-12 09:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../source/get_started.md:1
+msgid "快速入门"
+msgstr "Quick Start"
+
+#: ../../source/get_started.md:3
+msgid "下面的例子将帮助你快速进行HiNPS的安装和运行，我们还将通过一个例子向你展示HiNPS求解偏微分方程的过程。"
+msgstr "The following example will help you through the installation of HiNPS. We will illustrate the process of solving PDE using HiNPS."
+
+#: ../../source/get_started.md:4
+msgid "安装"
+msgstr "Installation"
+
+#: ../../source/get_started.md:6
+msgid "首先从GitHub获取我们的源代码"
+msgstr "First we obtain the source codes from GitHub."
+
+#: ../../source/get_started.md:12
+msgid "我们推荐使用`conda`进行环境配置。创建一个名为`hinps`的python3.8环境。"
+msgstr "We recommend using `conda` to set up the environment. First we create a conda environment named `hinps` with python3.8."
+
+#: ../../source/get_started.md:18
+msgid "请根据你的安装环境首先安装[PyTorch](https://pytorch.org/)(版本要求>=1.10)。需要使用GPU则请将cudatoolkit=11.3改为你的CUDA版本号。"
+msgstr ""
+
+#: ../../source/get_started.md:22
+msgid "如果只需要在CPU上运行，请使用"
+msgstr ""
+
+#: ../../source/get_started.md:27
+msgid "接下来准备MPI。你需要首先在你的机器上安装MPI，集群上可以通过`module avail`检查是否存在已安装好的MPI，如果有的话请加载。"
+msgstr ""
+
+#: ../../source/get_started.md:29
+msgid "如果没有我们推荐使用OpenMPI。"
+msgstr ""
+
+#: ../../source/get_started.md:34
+msgid "随后安装mpi4py"
+msgstr ""
+
+#: ../../source/get_started.md:38
+msgid "安装HiNPS"
+msgstr ""
+
+#: ../../source/get_started.md:40
+msgid "在HiNPS文件夹下，可以通过setup.py进行安装。"
+msgstr ""
+
+#: ../../source/get_started.md:46
+msgid "如果上述过程出错了，可以手动安装以下依赖包"
+msgstr ""
+
+#: ../../source/get_started.md:52
+msgid "进入python，检查HiNPS版本从而检查安装是否正确"
+msgstr ""
+
+#: ../../source/get_started.md:59
+msgid "第一个算例"
+msgstr ""
+
+#: ../../source/get_started.md:61
+msgid ""
+"下面我们通过一个算例解释如何使用HiNPS进行偏微分方程的求解。我们选择的是一个定义在$T\\times \\Omega$上的热传导问题，其中$T"
+" =[0,1],\\Omega=[0,1]^3$。给定狄利克雷边界条件和初始温度条件。我们需要编写运行脚本的代码来表示下述的问题。"
+msgstr ""
+
+#: ../../source/get_started.md:63
+msgid ""
+"\n"
+"\\frac{\\partial u}{\\partial t}- \\Delta u = r,~~~~ on ~~\\Omega\n"
+msgstr ""
+
+#: ../../source/get_started.md:67
+msgid ""
+"\n"
+"u = r_d,~~~~ on ~~\\partial\\Omega\n"
+msgstr ""
+
+#: ../../source/get_started.md:71
+msgid ""
+"\n"
+"u_{|t=0} = r_i,~~~~ on ~~\\partial\\Omega\n"
+msgstr ""
+
+#: ../../source/get_started.md:76
+msgid "首先我们进行初始化，在这里我们会解析来自[命令行的参数](bash脚本)，返回的args则包括了这些参数。"
+msgstr ""
+
+#: ../../source/get_started.md:84
+msgid "定义求解区域"
+msgstr ""
+
+#: ../../source/get_started.md:86
+msgid "准备好求解区域的定义。我们把求解区域的定义分成两部分，一部分是空间区域的定义。在这个例子中我们选择的是一个边长平行于坐标轴的方块形空间区域，所以只需要定义上界`sup`和下界`inf`即可。"
+msgstr ""
+
+#: ../../source/get_started.md:91
+msgid "TIPS: 更多形状、参数详细定义请参考[hinps.geometry](api.md#geometry)"
+msgstr ""
+
+#: ../../source/get_started.md:93
+msgid "接下来定义时间维度。如果你的问题是诸如对稳态的求解，与时间无关，那么可以跳过这一步。我们将时间维度的信息存在`Dataset`数据结构中，所以你首先需要用新建的几何区域`geo`来构造一个`Dataset`。然后再用`add_time.range`声明你需要加上一个时间维度，传入你关心的时间上界和下界。"
+msgstr ""
+
+#: ../../source/get_started.md:100
+msgid "当前我们默认所有的训练任务都需要区域分解，所以我们需要使用`DecomposedTrainDataset`，并且在声明时间维度后需要现式地初始化区域分解信息`decompose_init()`"
+msgstr ""
+
+#: ../../source/get_started.md:102
+msgid "定义问题"
+msgstr ""
+
+#: ../../source/get_started.md:104
+msgid ""
+"接下来我们定义问题。问题分为两部分，方程本身与边界条件。 "
+"方程本身可以使用我们内置的`pde`模块。当然我们也支持自定义PDE，请参考[hinps.pde](api.md#pde)"
+msgstr ""
+
+#: ../../source/get_started.md:109
+msgid "另外，我们使用[SymPy](https://www.sympy.org/en/index.html)作为我们符号运算的工具，经过`hinps.expression.Function`的封装，可以变为可调用的函数。在这里你可以根据你习惯的数学表达式写法描述你的函数。接下来得到的`ground`则是一个输入为4维，输出为1维的函数。"
+msgstr ""
+
+#: ../../source/get_started.md:120
+msgid "在HiNPS中，我们认为PDE是定义在求解区域内部的一种“约束”，所以我们构造一个`Constraint`的对象，并且将其加入到`train_dataset`中以表示这个约束。它表示作用于集合空间的内部（以区别于“边界”），类型是\"internal\"。"
+msgstr ""
+
+#: ../../source/get_started.md:122
+msgid ""
+"\"internal\"类型的约束是等式约束的形式，左端项(lhs, left-hand "
+"side)与我们神经网络推理的结果有关，我们给定一个heat.lhs；右端项(rhs, right-hand "
+"side)是我们已知的函数（例如热源、振动源等等）有关。"
+msgstr ""
+
+#: ../../source/get_started.md:124
+msgid "我们还需要指定这个约束的权重（默认为1），针对这个约束，我们要采样的数目`sample_size`。为了方便调试，我们可以给这个约束一个名字，例如'Internal'。"
+msgstr ""
+
+#: ../../source/get_started.md:138
+msgid "我们再定义边界条件。类型为\"dirichlet\"，也是一种等式约束，但是等式的左边为待求的函数，右边才是我们已知的函数。"
+msgstr ""
+
+#: ../../source/get_started.md:140
+msgid "我们可以用filter参数来指定该约束作用于边界的哪些部分，如果不指定，则默认该约束作用域整个边界。"
+msgstr ""
+
+#: ../../source/get_started.md:155
+msgid "接下来我们定义初始条件。关于时间的约束我们需要指定作用的时间范围，对于初始条件，我们让这个范围的上界和下界都等于TIME_INF（初始时刻）就可以了。该参数功能类似边界条件的`filter`。"
+msgstr ""
+
+#: ../../source/get_started.md:170
+msgid "为了验证我们创建`val_datset`"
+msgstr ""
+
+#: ../../source/get_started.md:175
+msgid "定义神经网络和求解器"
+msgstr ""
+
+#: ../../source/get_started.md:177
+msgid "构建网络和优化器。"
+msgstr ""
+
+#: ../../source/get_started.md:199
+msgid "创建求解器，调用`.solve()`即可开始PINN的流程。"
+msgstr ""
+

@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, YipZLF
+# This file is distributed under the same license as the HiNPS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: HiNPS \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-12 09:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Ye Zilingfeng <yipzlf@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../source/index.md:10
+msgid "快速入门"
+msgstr "Quick Start"
+
+#: ../../source/index.md:10
+msgid "几何区域"
+msgstr "Geometry"
+
+#: ../../source/index.md:10
+msgid "数据与采样"
+msgstr "Data and Sampling"
+
+#: ../../source/index.md:10
+msgid "方程与约束"
+msgstr "Equation and Constraints"
+
+#: ../../source/index.md:10
+msgid "并行与分布式"
+msgstr "Parallel Acceleration"
+
+#: ../../source/index.md:22
+msgid "热传导"
+msgstr "Heat Transmission"
+
+#: ../../source/index.md:22
+msgid "弹簧振子系统"
+msgstr "Spring"
+
+#: ../../source/index.md:22
+msgid "典型算例"
+msgstr "Typical Examples"
+
+#: ../../source/index.md:32
+msgid "hinps"
+msgstr ""
+
+#: ../../source/index.md:32
+msgid "API文档"
+msgstr "API Docs"
+
+#: ../../source/index.md:1
+msgid "HiNPS文档"
+msgstr "HiNPS Documentation"
+
+#: ../../source/index.md:3
+msgid "HiNPS, High-performance Neural Network PDE Solver, 是一个基于神经网络方法求解偏微分方程的软件。"
+msgstr "HiNPS, High-performance Neural Network PDE Solver, is a software to solve PDE based on neural network method."
+
+#: ../../source/index.md:5
+msgid "友情提示"
+msgstr "Tips"
+
+#: ../../source/index.md:6
+msgid "本项目依然在活跃开发中。"
+msgstr "This project is under active developtment."
+
